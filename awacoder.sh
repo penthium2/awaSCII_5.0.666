@@ -86,7 +86,7 @@ awa=$(echo "$awa" | sed -E 's/(.)/\1 /g')
 for awawawa in $awa ; do
 	for awanum in "${!awascii[@]}"; do
     if [[ "${awascii[$awanum]}" == "$awawawa" ]]; then
-      printf "%08d\n" "$(echo "obase=2; $awanum" | bc)" | sed -E 's/0/ awa /g;s/1/wa/g;s/ +/ /g'
+      printf "%08d\n" "$(echo "obase=2; $awanum" | bc)" | sed -E 's/0/ awa /g;s/1/wa/g;s/ +/ /g;s/((^| )awa) (wa)/\1\3/g'
     fi
   done
 done | tr '\n' ',' | sed 's/,$//'
