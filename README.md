@@ -6,10 +6,10 @@
     src = 'Website/Media/Jelly AWA.png'
 />
 
-#   AWA5.0
+#   AWA5.0.666
 
 *Awa language designed for awatistic people.*
-
+*AwaSCII encode/decode script shell*
 <br>
 
 [![Button Website]][Website]  
