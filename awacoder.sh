@@ -69,7 +69,7 @@ awa="$1"
     [49]="7"
     [50]="8"
     [51]="9"
-    [52]=" "
+    [52]="@" #@ correspond à l'espace et sera décodé en espace par awadecoder.sh
     [53]="."
     [54]=","
     [55]="!"
@@ -82,7 +82,7 @@ awa="$1"
     [62]=";"
     [63]=$'\n'
     )
-awa=$(echo "$awa" | sed -E 's/(.)/\1 /g')
+awa=$(echo "$awa" | sed -E 's/ /@/g;s/(.)/\1 /g')
 for awawawa in $awa ; do
 	for awanum in "${!awascii[@]}"; do
     if [[ "${awascii[$awanum]}" == "$awawawa" ]]; then
