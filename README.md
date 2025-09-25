@@ -9,7 +9,7 @@
 #   awaSCII+ v5.0.666
 
 
-*AwaSCII encode/decode script shell*
+*AwaSCII+ encode/decode*
 <br>
 
 New définition of awaSCII table with all ASCII caracters
