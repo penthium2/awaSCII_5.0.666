@@ -15,7 +15,7 @@
 New définition of awaSCII table with all ASCII caracters
 inspirate from AWA5.0 project
 
-Just for fun Look at the awa project tutorial
+Just for fun Look at the awa project tutorial :
 <!-- 
 
 [![Button Website]][Website]   -->
@@ -46,3 +46,7 @@ Just for fun Look at the awa project tutorial
 
 [Button Tutorial]: https://img.shields.io/badge/Tutorial-b92319?style=for-the-badge&logoColor=white&logo=YouTube
 [Tutorial]: https://www.youtube.com/watch?v=DY70AcaXq40
+
+</div>
+
+
