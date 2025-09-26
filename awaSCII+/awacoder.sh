@@ -115,7 +115,7 @@ declare -A awascii=(
     [95]='z'
     [96]='💨' # 💨 correspond à \t et sera décodé en \t par awadecoder.sh
 )
-awa=$(echo "$awa" | awk '{ORS="🍆"}1' | sed -E 's/ /💩/g;s/(.)/\1 /g;s/\t/💨/g;s/\*/\\*/g')
+awa=$(echo "$awa" | awk '{ORS="🍆"}1' | sed -E 's/ /💩/g;s/(.)/\1 /g;s/\t/💨/g;s/\*/\\*/g;s/`/\\`/g')
 for awawawa in $awa ; do
 	for awanum in "${!awascii[@]}"; do
     if [[ "${awascii[$awanum]}" == "$awawawa" ]]; then
