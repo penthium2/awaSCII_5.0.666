@@ -80,7 +80,7 @@ declare -A awascii=(
     [60]=':'
     [61]='='
     [62]=';'
-    [63]='🍆'
+    [63]='🍆' # 🍆 correspond à \n et sera décodé en \n par awadecoder.sh
     [64]='"'
     [65]='#'
     [66]='$'
@@ -113,8 +113,10 @@ declare -A awascii=(
     [93]='v'
     [94]='x'
     [95]='z'
+    [96]='💨'
 )
-awa=$(echo "$awa" | awk '{ORS="🍆"}1' | sed -E 's/ /💩/g;s/(.)/\1 /g')
+echo "$awa" | od -c
+awa=$(echo "$awa" | awk '{ORS="🍆"}1' | sed -E 's/ /💩/g;s/(.)/\1 /g;s/\t/💨/g')
 for awawawa in $awa ; do
 	for awanum in "${!awascii[@]}"; do
     if [[ "${awascii[$awanum]}" == "$awawawa" ]]; then
