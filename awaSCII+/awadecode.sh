@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
-
 awa="$1"
-
 
 ################# fonction area #################
 
@@ -39,10 +37,13 @@ awadecode() {
         [80]='X' [81]='Z' [82]='[' [83]='\'  [84]=']' [85]='^' [86]='_' [87]='`' [88]='{' [89]='|'
         [90]='}' [91]='k' [92]='q' [93]='v'  [94]='x' [95]='z' [96]='💨'
     )
-    while read line ; do
-        awabergine="$awabergine$(printf "%s" "${awascii[$((2#$line))]}")"
+    while read -r awaline ; do
+        awabergine="$awabergine$(printf "%s" "${awascii[$((2#$awaline))]}")"
     done < <(echo "$awa"  | sed -E 's/, /\n/g' | sed -E 's/(^awa| awa)/\1 /g;s/(awa |$)/\1 /g;s/ ((wa)+)( |$)/\1 /g;s/\<awa\>/0/g;s/wa/1/g;s/ //g')
     printf "%s" "$awabergine" | sed 's/🍆/\n/g;s/💨/\t/g'
 }
-awalogo
+
+################# Script area #################
+
+#awalogo
 awadecode

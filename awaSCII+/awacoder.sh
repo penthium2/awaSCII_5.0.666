@@ -36,7 +36,7 @@ awacode() {
       [80]='X'  [81]='Z' [82]='['  [83]='\'  [84]=']' [85]='^' [86]='_' [87]='\`' [88]='{' [89]='|'
       [90]='}'  [91]='k' [92]='q'  [93]='v'  [94]='x' [95]='z' [96]='💨'
   )
-  awa=$(echo "$awa" | awk '{ORS="🍆"}1' | sed -E 's/ /💩/g;s/(.)/\1 /g;s/\t/💨/g;s/\*/\\*/g;s/`/\\`/g')
+  awa="$(echo "$awa" | awk '{ORS="🍆"}1' | sed -E 's/ /💩/g;s/(.)/\1 /g;s/\t/💨/g;s/\*/\\*/g;s/`/\\`/g')"
   for awawawa in $awa ; do
     for awanum in "${!awascii[@]}"; do
       if [[ "${awascii[$awanum]}" == "$awawawa" ]]; then
@@ -44,6 +44,10 @@ awacode() {
       fi
     done
   done | tr '\n' ',' | sed 's/,$//'
+  echo
 }
-awalogo
+
+################# Script area #################
+
+#awalogo
 awacode
