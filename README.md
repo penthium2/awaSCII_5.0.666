@@ -81,3 +81,27 @@ Here the Table awaSCII+
 | 23  | 0x17 | m     | 47  | 0x2F | 5     | 71  | 0x47 | +     | 95  | 0x5F | z     |
 |     |      |       |     |      |       |     |      |       | 96  | 0x60 | \t   |
 
+
+# Difference between the Awa language and the AwaSCII+ encoding
+
+## Awa language :
+
+```
+Awa awa awawa awawa awa awawawa awawawawa awa awawa awawa awa awawa
+awa awa awawawa awa awawa awawa awa awawa awa awa awawawa awawa awa
+awawa awa awa awawawa awawa awa awawa awa awa awawawa awa awa awa awawa
+
+```
+
+## AwaSCII+ encoding :
+
+```
+awa awa awawawa awa awa awa , awa awa awa awawawawawa, awa awa awawawawawa awa ,
+awa awa awawawawawawa, awa awa awawa awa awawa awa , awa awa awawa awawa awawa ,
+awa awa awawa awawawa awa , awa awa awawa awawawawa, awa awawa awawawa awa awa ,
+awa awawawawawawawa
+
+```
+The awa encoding is 8-bit and separated by commas.
+
+For more information of awa language check : [awa language](https://github.com/TempTempai/AWA5.0/)
