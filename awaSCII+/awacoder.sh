@@ -113,7 +113,7 @@ declare -A awascii=(
     [93]='v'
     [94]='x'
     [95]='z'
-    [96]='💨'
+    [96]='💨' # 💨 correspond à \t et sera décodé en \t par awadecoder.sh
 )
 echo "$awa" | od -c
 awa=$(echo "$awa" | awk '{ORS="🍆"}1' | sed -E 's/ /💩/g;s/(.)/\1 /g;s/\t/💨/g')
