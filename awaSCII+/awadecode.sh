@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
-
-awa="$1"
-
 ################# fonction area #################
-
 ## awalogo function
 awalogo() {
 echo "             █████╗ ██╗    ██╗ █████╗
@@ -22,7 +18,6 @@ echo "             █████╗ ██╗    ██╗ █████╗
                 By Penthium2 BZHack
 "
 }
-
 ## awadecode function
 awadecode() {
     declare -A awascii=(
@@ -42,8 +37,74 @@ awadecode() {
     done < <(echo "$awa"  | sed -E 's/, /\n/g' | sed -E 's/(^awa| awa)/\1 /g;s/(awa |$)/\1 /g;s/ ((wa)+)( |$)/\1 /g;s/\<awa\>/0/g;s/wa/1/g;s/ //g')
     printf "%s" "$awabergine" | sed 's/🍆/\n/g;s/💨/\t/g'
 }
+## awahelp function
+awahelp() {
+  awalogo
+  cat <<EOF
+Usage: $0 [options] [text]
 
+Decode text from awaSCII+.
+
+Options:
+  -i, --input <file>      Read text to decode from a file
+  -o, --output <file>     Write output to a file
+  -h, --help              Show this help message
+
+Examples:
+  $0 'awa awa awawawawa awa awa , awa awawa awawawa awa awa'
+  $0 -i myawafile.awa
+  $0 -i myawafile.awa -o output.txt
+  $0 -h
+
+If no text or file is provided, nothing will be decoded.
+EOF
+}
+## awaoption function
+awaoption() {
+  if [[ -z "$1" ]]; then
+      awahelp
+      exit 0
+  fi
+  while [[ $# -gt 0 ]]; do
+      case "$1" in
+          -i|--input)
+              awainput="$2"
+              if [[ -n "$awainput" ]]; then
+                  if [[ -f "$awainput" ]]; then
+                      awa="$(cat "$awainput")"
+                  else
+                      echo "Fichier d'entrée introuvable: $awainput" >&2
+                      exit 1
+                  fi
+              fi
+              shift 2
+              ;;
+          -o|--output)
+              awaoutput="$2"
+              shift 2
+              ;;
+          -h|--help)
+              awahelp
+              exit 0
+              ;;
+          *)
+              if [[ -z "$awa" ]]; then
+                  awa="$1"
+              fi
+              shift
+              ;;
+      esac
+  done
+
+}
+## awamain function
+awamain() {
+  if [[ -n "$awaoutput" ]]; then
+      awadecode > "$awaoutput"
+  else
+      awadecode
+  fi
+}
 ################# Script area #################
-
-#awalogo
-awadecode
+awaoption "$@"
+awamain
