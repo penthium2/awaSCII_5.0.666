@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
-
-awa="$1"
-
 ################# fonction area #################
-
 ## awalogo function
 awalogo() {
 echo "             █████╗ ██╗    ██╗ █████╗
@@ -22,7 +18,7 @@ echo "             █████╗ ██╗    ██╗ █████╗
                 By Penthium2 BZHack
 "
 }
-##awacode function
+## awacode function
 awacode() {
   declare -A awascii=(
       [0]='A'   [1]='W'  [2]='a'   [3]='w'   [4]='J'  [5]='E'  [6]='L'  [7]='Y'   [8]='H'  [9]='O'
@@ -46,8 +42,73 @@ awacode() {
   done | tr '\n' ',' | sed 's/,$//'
   echo
 }
+## awahelp function
+awahelp() {
+  awalogo
+  cat <<EOF
+Usage: $0 [options] [text]
 
+Encode text to awaSCII+.
+
+Options:
+  -i, --input <file>      Read text to encode from a file
+  -o, --output <file>     Write output to a file
+  -h, --help              Show this help message
+
+Examples:
+  $0 'penthium2'
+  $0 -i myawafile.txt
+  $0 -i myawafile.txt -o output.awa
+  $0 -h
+
+If no text or file is provided, nothing will be encoded.
+EOF
+}
+## awaoption function
+awaoption() {
+  if [[ -z "$1" ]]; then
+      awahelp
+      exit 0
+  fi
+  while [[ $# -gt 0 ]]; do
+      case "$1" in
+          -i|--input)
+              awainput="$2"
+              if [[ -n "$awainput" ]]; then
+                  if [[ -f "$awainput" ]]; then
+                      awa="$(cat "$awainput")"
+                  else
+                      echo "Fichier d'entrée introuvable: $awainput" >&2
+                      exit 1
+                  fi
+              fi
+              shift 2
+              ;;
+          -o|--output)
+              awaoutput="$2"
+              shift 2
+              ;;
+          -h|--help)
+              awahelp
+              exit 0
+              ;;
+          *)
+              if [[ -z "$awa" ]]; then
+                  awa="$1"
+              fi
+              shift
+              ;;
+      esac
+  done
+}
+## awamain function
+awamain() {
+  if [[ -n "$awaoutput" ]]; then
+      awacode > "$awaoutput"
+  else
+      awacode
+  fi
+}
 ################# Script area #################
-
-#awalogo
-awacode
+awaoption "$@"
+awamain
