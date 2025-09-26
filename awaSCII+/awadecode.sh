@@ -118,5 +118,4 @@ while read line ; do
     #echo "$((2#$line))"
     awabergine="$awabergine$(printf "%s" "${awascii[$((2#$line))]}")"
 done < <(echo "$awa"  | sed -E 's/, /\n/g' | sed -E 's/(^awa| awa)/\1 /g;s/(awa |$)/\1 /g;s/ ((wa)+)( |$)/\1 /g;s/\<awa\>/0/g;s/wa/1/g;s/ //g')
-echo "$awabergine"
 printf "%s" "$awabergine" | sed 's/🍆/\n/g;s/💨/\t/g'
