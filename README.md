@@ -110,7 +110,7 @@ The awa encoding is 8-bit and separated by commas.
 
 ## Web Interface
 
-An interactive web interface is available at **[awa.noobops.fr](https://awa.noobops.fr)** 
+An interactive web interface is available at **[awa.noobops.fr](https://awa.noobops.fr)**
 
 This web interface provides:
 - **Real-time encoding/decoding** with the awaSCII+ v5.0.666 format
@@ -118,6 +118,21 @@ This web interface provides:
 - **Modern responsive design** for desktop and mobile devices
 - **Easy-to-use interface** with instant results
 - **Text-to-speech functionality** to listen to awaSCII+ code pronunciation
+- **Progressive Web App (PWA)** - Works completely offline once installed
+- **Installable on mobile and desktop** - Add to home screen for app-like experience
+
+### PWA Features
+
+The web interface is a fully functional **Progressive Web App**:
+
+- **Works offline** - Encode and decode messages without internet connection
+- **Installable** - Add to home screen on Android, iOS, and desktop
+- **Fast and reliable** - All assets cached for instant loading
+
+**Install on your device:**
+- **Android**: Chrome → Menu → "Add to Home screen"
+- **iPhone/iPad**: Safari → Share button → "Add to Home Screen"
+- **Desktop**: Chrome/Edge → Click the ⊕ icon in address bar → "Install"
 
 The web version implements the exact same encoding/decoding algorithm as the Bash scripts, ensuring perfect interoperability between all versions.
 
